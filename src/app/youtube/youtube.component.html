@@ -1,0 +1,31 @@
+<div class="jumbotron">
+  <p class="lead">Name of Youtube link: {{YoutubeName}}</p>
+</div>
+<ngx-spinner></ngx-spinner>
+
+<button class="btn btn-default" type="button" (click)="Download()">
+  Download</button>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">username</th>
+      <th scope="col">review</th>
+      <th scope="col">date</th>
+      <th scope="col">link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let comment of comments | paginate: { itemsPerPage: 15, currentPage: p }; let i = index">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{comment.username}}</td>
+      <td [innerHTML]="comment.review"></td>
+      <td>{{comment.date | date:'longDate'}}</td>
+      <td>
+        <a href={{comment.link}} target="_blank">Visit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

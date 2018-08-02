@@ -1,0 +1,39 @@
+  <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h2>Comment and Review</h2>
+    <p class="lead">Enter a youtube video link to view and download its comments</p>
+    <p>You can only view and download first 100 comments</p>
+  </div>
+
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-md-6">
+      <h4 class="mb-3">Enter web </h4>
+      <form class="needs-validation" #linkForm="ngForm" (ngSubmit)="OnSubmit(link.value)">
+        <div class="mb-3">
+          <label for="link">Web Link</label>
+          <input type="text" class="form-control" name="link" pattern="^(http(s)??\:\/\/)?(www\.|m\.)?((youtube\.com\/watch\?v=)|(youtu.be\/))([a-zA-Z0-9\-_]{11})$" id="link" #link ngModel required>
+          <div class="invalid-feedback">
+            Web Link is required
+          </div>
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" [disabled]="!linkForm.valid">Click to continue</button>
+      </form>
+    </div>
+    <div class="col"></div>
+  </div>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017-2018 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item">
+        <a href="#">Privacy</a>
+      </li>
+      <li class="list-inline-item">
+        <a href="#">Terms</a>
+      </li>
+      <li class="list-inline-item">
+        <a href="#">Support</a>
+      </li>
+    </ul>
+  </footer>
