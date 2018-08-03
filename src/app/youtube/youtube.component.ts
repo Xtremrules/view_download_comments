@@ -11,6 +11,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class YoutubeComponent implements OnInit {
   comments: Comment[] = [];
+  p;
 
   constructor(private mainService: MainService, private route: Router, private spinner: NgxSpinnerService) { }
   link;
